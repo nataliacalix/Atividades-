@@ -20,3 +20,66 @@ fun main() {
     }
 }
 
+# Atividade Construtora
+fun main() {
+    
+    //a Área do terreno
+    val largura = 10.0
+    val comprimento = 12.0
+    
+    val area = largura * comprimento
+    println("Área do terreno: " + area + " m2")
+    
+    if (area < 10) {
+        println("Obra permitida apenas a partir de 10m2")
+        return
+    }
+    
+    // b) Profissionais
+    val mestre = 1
+    val serventes = (area / 100).toInt() * 2
+    val engenheiro = (area / 100).toInt()
+    
+    println("Mestre de obra: " + mestre)
+    println("Serventes: " + serventes)
+    println("Engenheiro: " + engenheiro)
+    
+    // c) Valor de obra
+    val valorBase = (area / 10).toInt() * 4500
+    
+    val quartoSemSuite = 2
+    val quartoComSuite = 1
+    val banheiro = 2
+    val areaServico = 1
+    val piscina = 0
+    
+    var valorObra = valorBase
+    valorObra = valorObra + (quartoSemSuite * 12000)
+    valorObra = valorObra + (quartoComSuite * 17000)
+    valorObra = valorObra + (banheiro * 5000)
+    
+    if (areaServico == 1) {
+        valorObra = valorObra + 15000
+    }
+    
+    println("Valor da obra sem mão de obra: R$ " + valorObra)
+    
+    // d) Mão de obra
+    val custoMaoObra =
+        (mestre * 3500) + 
+        (serventes * 1900) +
+        (engenheiro * 11000) 
+        
+    println("Custo da mão de obra: R$ " + custoMaoObra)
+    
+    // e) Total + Lucro
+    val totalObra = valorObra + custoMaoObra
+    val lucro = totalObra * 0.25
+    val valorFinal = totalObra + lucro
+    
+    println("Total da obra com mão de obra: R$ " + totalObra)
+    println("Lucro da empresa: R$ " + lucro)
+    println("Valor final da obra: R$ " + valorFinal)
+    
+}
+
